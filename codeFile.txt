@@ -1,0 +1,5172 @@
+(*SOFTCONTROL:
+VERSION:4.00.20*)
+FUNCTION_BLOCK DIAG_WyszukajKomunikatySilnika
+(**)
+(**)
+	VAR_INPUT
+		di_SzukaneSPN: DINT:=0;
+		b_SzukaneFMI: BYTE:=0;
+	END_VAR
+	VAR_OUTPUT
+		uiCodeNb: UINT:=0
+		sPriority: STRING[1]:=''
+		usType: USINT:=0
+		uiDeviceNb: UINT:=0
+		sDescription: STRING[300]:=''
+		sDescriptionStaff: STRING[1]:=''
+		sDescriptionMaintenance: STRING[1]:=''
+	END_VAR
+'ST'
+BODY
+CASE di_SzukaneSPN OF
+168:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 3001;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 168 -Napiêcie akumulatora przekracza próg ostrzegawczy. Mo¿liwe zwarcie obwodu ';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3002;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 168 - Napiêcie akumulatora jest poni¿ej progu ostrzegawczego. Mo¿liwe zwarcie obwodu do masy. ';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	2:
+		uiCodeNb := 3003;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 168 - Wysokie napiêcie akumulatora. Przekroczono próg ostrzegawczy.';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	2:
+		uiCodeNb := 3004;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 168 -Wysokie napiêcie akumulatora. Przekroczono próg startu.';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+1235:
+	uiCodeNb := 3005;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN - 1235 - B³¹d magistrali CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+639:
+	uiCodeNb := 3006;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN - 639 - CAN-BUS 0: "BusOff-Status"';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1231:
+	uiCodeNb := 3007;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN - 1231 - CAN-BUS 1: "BusOff-Status"';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1235:
+	uiCodeNb := 3008;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN - 1235 - CAN-BUS 2: "BusOff-Status"';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+102:
+	uiCodeNb := 3009;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN - 102 - B³¹d ciœnienia powietrza do³adowanego / Ciœnienie powietrza do³adowanego powy¿ej progu ostrzegawczego / Ciœnienie powietrza do³adowanego poni¿ej progu ostrzegawczego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+110:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 3010;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3011;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	0:
+		uiCodeNb := 3012;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego: Temperatura p³ynu ch³odz¹cego powy¿ej progu wy³¹czenia. Rozpoczêto reakcjê systemu';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 3013;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego: SprawdŸ zakres fizyczny niski dla temperatury p³ynu ch³odniczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+111:
+	uiCodeNb := 3014;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 111 - Niski poziom p³ynu ch³odniczego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523717:
+	uiCodeNb := 3015;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523717 - B³ad ramki CAN AmbCon';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523603:
+	uiCodeNb := 3016;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523603 - B³¹d ramki CAN AMB';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3224:
+	uiCodeNb := 3017;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3224 - B³¹d ramki AT1IG1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3224:
+	uiCodeNb := 3018;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3224 - B³¹d DLC czujnika CAN-recive ramka AT1IG1Vol NOX.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 3019;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3234 - B³¹d ramki AT1OG1Vol';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 3020;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3234 - B³¹d DLC czujnika CAN-recive ramka AT1O1Vol.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 3021;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3234 - DFC dla b³êdu wiarygodnoœci min dla czujnika Nox za SCR kat.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 3022;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3234 - DFC dla b³êdu wiarygodnoœci min dla czujnika Nox przed SCR kat.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523704:
+	uiCodeNb := 3023;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523704 - B³¹d ramki EEC3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523212:
+	uiCodeNb := 3024;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523212 - B³ad ramki ComEngPrt';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523240:
+	uiCodeNb := 3025;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523240 - B³¹d ramki FunModCtl';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523216:
+	uiCodeNb := 3026;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523216 - B³¹d ramki PrHtEnCmd';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523776:
+	uiCodeNb := 3027;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523776 - B³¹d ramki TSC1TE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523788:
+	uiCodeNb := 3028;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523788 - B³¹d ramki TrbCH';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+898:
+	uiCodeNb := 3029;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 898 - B³¹d ramki TSC1TE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+520:
+	uiCodeNb := 3030;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 520 - B³¹d ramki TSC1TR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523982:
+	uiCodeNb := 3031;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523982 - Diagnostyka stopnia mocy wy³¹czona:  Wysokie napiêcie akumulatora';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523982:
+	uiCodeNb := 3032;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523982 - Diagnostyka stopnia mocy wy³¹czona:  Niskie napiêcie akumulatora';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523090:
+	uiCodeNb := 3033;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523090 - B³¹d wiarygodnoœci hamulca silnikowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+630:
+	uiCodeNb := 3034;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 630 - B³¹d dostêpu do pamiêci EEPROM';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 3035;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523612 - Wewnêtrzny b³¹d oprogramowania ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 3036;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523612 - Wewnêtrzny b³¹d oprogramowania ECU / Napiêcie zasilania powy¿ej progu bezpieczeñstwa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 3037;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523612 - Wewnêtrzny b³¹d oprogramowania ECU / Napiêcie zasilania poni¿ej progu bezpieczeñstwa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+190:
+	CASE b_SzukaneFMI OF
+	0:
+		uiCodeNb := 3038;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 190 - Przekroczona prêdkoœæ obrotowa silnika: Prêdkoœæ silnika powy¿ej progu ostrzegawczego / Prêdkoœæ silnika powy¿ej progu ostrzegawczego (Poziom FOC 1)';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	11:
+		uiCodeNb := 3039;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 190 - Przekroczona prêdkoœæ obrotowa silnika: Prêdkoœæ silnika powy¿ej progu ostrzegawczego (Poziom FOC 2)';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 3040;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 171 - B³¹d czujnika temperatury otoczenia systemu SCR: B³¹d czujnika temperatury otoczenia systemu SCR.  Temperatura powietrza na wlocie systemu DPF - Sygna³ wysoki';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3041;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 171 - B³¹d czujnika temperatury otoczenia systemu SCR: B³¹d czujnika temperatury otoczenia systemu SCR.  Temperatura powietrza na wlocie systemu DPF - Sygna³ niski';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	8:
+		uiCodeNb := 3042;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 190 - B³¹d czujnika prêdkoœci wa³ka rozrz¹du: Czujnik prêdkoœci wa³ka rozrz¹du. Zak³ócony sygna³';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	2:
+		uiCodeNb := 3043;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 190 - B³¹d czujnika prêdkoœci wa³ka rozrz¹du: K¹t przesuniêcia miêdzy korb¹ a czujnikiem wa³ka rozrz¹du jest zbyt du¿y.';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	12:
+		uiCodeNb := 3044;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 190 - B³¹d czujnika prêdkoœci wa³ka rozrz¹du: Wykrywanie prêdkoœci poza zasiêgiem, zak³ócenie sygna³u lub brak sygna³u';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 3045;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 94 - Niskie ciœnienie paliwa: B³¹d czujnika niskiego ciœnienia paliwa - Sygna³ wysoki';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3046;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 94 - Niskie ciœnienie paliwa: B³¹d czujnika niskiego ciœnienia paliwa - Sygna³ niski';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 3047;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 94 - Niskie ciœnienie paliwa: Niskie ciœnienie paliwa, przekroczony próg ostrzegawczy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 3048;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 94 - Niskie ciœnienie paliwa: Niskie ciœnienie paliwa, przekroczony próg wy³¹czenia';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523618:
+	uiCodeNb := 3049;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523618 - B³¹d czzujnika temperatury oleju w skrzyni biegów: B³¹d czujnika temperatury oleju w skrzyni biegów - Sygna³ wysoki';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523618:
+	uiCodeNb := 3050;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523618 - B³¹d czzujnika temperatury oleju w skrzyni biegów: B³¹d czujnika temperatury oleju w skrzyni biegów - Sygna³ niski';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523619:
+	uiCodeNb := 3051;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523619 - Temperatura spalin SCR-CAT';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+676:
+	uiCodeNb := 3052;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 676 - B³¹d przekaŸnika wspomagania rozruchu na zimno: B³¹d przekaŸnika wspomagania rozruchu na zimno/PrzekaŸnik wspomagania rozruchu na zimno - Otwarte obci¹¿enie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523895:
+	uiCodeNb := 3053;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523895 - Brak regulacji wtryskiwacza 1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523896:
+	uiCodeNb := 3054;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523896 - Brak regulacji wtryskiwacza 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523897:
+	uiCodeNb := 3055;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523897 - Brak regulacji wtryskiwacza 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523900:
+	uiCodeNb := 3056;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523900 - Brak regulacji wtryskiwacza 6';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523350:
+	uiCodeNb := 3057;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523350 - Wtryskiwacz cylinder rz¹d 1: Zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523352:
+	uiCodeNb := 3058;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523352 - Wtryskiwacz cylinder rz¹d 2: Zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523354:
+	uiCodeNb := 3059;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523354 - Usterka wtryskiwacza';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+651:
+	uiCodeNb := 3060;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 651 - Wtryskiwacz 1 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+652:
+	uiCodeNb := 3061;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 652 - Wtryskiwacz 2 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+653:
+	uiCodeNb := 3062;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 653 - Wtryskiwacz 3 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+654:
+	uiCodeNb := 3063;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 654 - Wtryskiwacz 5 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+655:
+	uiCodeNb := 3064;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 655 - Wtryskiwacz 5 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+656:
+	uiCodeNb := 3065;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 656 - Wtryskiwacz 6 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+651:
+	uiCodeNb := 3066;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 651 - Wtryskiwacz 1 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+652:
+	uiCodeNb := 3067;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 652 - Wtryskiwacz 2 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+653:
+	uiCodeNb := 3068;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 653 - Wtryskiwacz 3 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+654:
+	uiCodeNb := 3069;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 654 - Wtryskiwacz 4 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+655:
+	uiCodeNb := 3070;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 655 - Wtryskiwacz 5 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+656:
+	uiCodeNb := 3071;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 656 - Wtryskiwacz 6 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523615:
+	uiCodeNb := 3072;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523615 - Wykrywanie otwartego b³êdu obci¹¿enia w dozowniku uk³adu paliwowego - zwarcie do plusa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523615:
+	uiCodeNb := 3073;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523615 - Wykrywanie otwartego b³êdu obci¹¿enia w dozowniku uk³adu paliwowego - zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+100:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 3074;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 100 - B³¹d czujnika ciœnienia oleju - zwarcie obwodu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3075;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 100 - B³¹d czujnika ciœnienia oleju - zwarcie obwodu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 3076;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 100 - Niskie ciœnienie oleju - Ciœnienie oleju poni¿ej progu ostrzegawczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 3077;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 107 - B³¹d czujnika ró¿nicy ciœnieñ na filtrze powietrza/ Zwarcie obwodu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	0:
+		uiCodeNb := 3078;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 107 - B³¹d czujnika ró¿nicy ciœnieñ na filtrze powietrza/ Zwarcie obwodu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 3079;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 102 - Ciœnieniowa ch³odnia powietrza do³adowuj¹cego / Zwarcie obwodu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3080;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 102 - Ciœnieniowa ch³odnia powietrza do³adowuj¹cego / Zwarcie obwodu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523009:
+	uiCodeNb := 3081;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523009 - B³¹d zawór PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523009:
+	uiCodeNb := 3082;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523009 - Przekroczono czas otwarcia zaworu nadmiarowego ciœnienia PRV ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 3083;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523470 Otwarcie zaworu PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 3084;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523470 Otwarcie zaworu PRV / Zawór nadmiarowy ciœnienia zmuszony do otwarcia. Warunki odciêcia.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 3085;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523470 Otwarty zawor PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 3086;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523470 Ciœnienie szyny poza zakresem tolerancji. PRV nie mo¿e byæ otwierany w tym punkcie pracy pod wp³ywem szoku ciœnieniowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 3087;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523470 Przekroczono maksymalne ciœnienie szyny PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523613:
+	uiCodeNb := 3088;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523613 B³êdne ciœnienie w szynie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523614:
+	uiCodeNb := 3089;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523614 - B³¹d czujnika ciœnienia szyny - Przekroczono minimalne ciœnienie szyny ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523614:
+	uiCodeNb := 3090;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523614 - B³¹d czujnika ciœnienia szyny - Dozownik ciœnienia w szynie, wartoœæ zadana dozownika w trybie wybiegu nie jest prawdopodbna';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+157:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 3091;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 157 - B³¹d czujnika ciœnienia szyny - Napiêcie czujnika powy¿ej górnej granicy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3092;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 157 - B³¹d czujnika ciœnienia szyny - Napiêcie czujnika poni¿ej dolnej granicy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523633:
+	uiCodeNb := 3093;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523633 - D³ugoterminowy wspó³czynnik adaptacji poni¿ej progu';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 3094;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 3095;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 3096;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 3097;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym - Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 3098;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4345 - B³¹d wiarygnodnoœci czujnika ciœnienia w przewodzie zwrotnym - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4343:
+	uiCodeNb := 3099;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4343 - Ogólny b³¹d kontroli ciœnienia (SCR)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4343:
+	uiCodeNb := 3100;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4343 - Ogólny b³¹d kontroli ciœnienia (SCR) - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4374:
+	uiCodeNb := 3101;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4374 - B³¹d zaworu dozuj¹cego stabilizacji ciœnienia';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 3102;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523632 - B³¹d systemu SCR - Zbyt wysokie ciœnienie pompy w dozwoniku SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 3103;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523632 - B³¹d systemu SCR - Zbyt niskie ciœnienie pompy w dozwoniku SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 3104;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523632 - B³¹d systemu SCR - Przeci¹¿enie ciœnieniowe systemu SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 3105;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523632 - B³¹d systemu SCR - B³¹d wzrostu ciœnienia systemu SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 3106;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523632 - B³¹d systemu SCR - Zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 3107;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523632 - B³¹d systemu SCR - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 3108;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523632 - B³¹d systemu SCR - silnik pompy modu³u zasilania mocznikiem niedostêpny do uruchomienia';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 3109;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4365 - Zbyt wysoka temperatura zbiornika DEF';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 3110;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4365 - B³¹d czujnika temperatury zbiornika mocznika - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 3111;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4365 - B³¹d czujnika temperatury zbiornika mocznika - Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 3112;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4365 - Temperatura zbiornika mocznika jest powy¿ej progu ostrzegawczego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 3113;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4365 - Czujnik jakoœci mocznika - Temperatura poza zakresem fizycznym';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3241:
+	uiCodeNb := 3114;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3241 - Za wysoka temperatura katalizatora SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3361:
+	uiCodeNb := 3115;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3361 - Zablokowany zawór dozuj¹cy DEF';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3361:
+	uiCodeNb := 3116;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3361 - Zawór dozuj¹cy DEF - zbyt du¿a moc na koñcu wtrysku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523720:
+	uiCodeNb := 3117;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523720 - B³¹d wiarygodnoœci temperatury podgrzewacza modu³u zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523720:
+	uiCodeNb := 3118;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523720 Temperatura grza³ki modu³u zasilajacego DEF - cykl pracy w zakresie awarii';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523721:
+	uiCodeNb := 3119;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523721 - B³¹d wiarygodnoœci temperatury modu³u zasilania czujnika DEF';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523721:
+	uiCodeNb := 3120;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523721 Brak pomiaru temperatury modu³u zasilania mocznikiem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523721:
+	uiCodeNb := 3121;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523721 - Temperatura modu³u zasilaj¹cego DEF - cykl pracy w zakresie awarii';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523981:
+	uiCodeNb := 3122;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523981 - Zbiornik DEF bez funkcji grzania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523722:
+	uiCodeNb := 3123;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523722 - Sygna³ PWM modu³u DEF poza zakresem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3532:
+	uiCodeNb := 3124;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3532 - Napiêcie czujnika poziomu DEF w zbiorniku poza zakresem - zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3532:
+	uiCodeNb := 3125;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3532 - Napiêcie czujnika poziomu DEF w zbiorniku poza zakresem - zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3532:
+	uiCodeNb := 3126;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3532 - Czujnik jakoœci mocznika - poziom w zbiorniku poza zakresem fizycznym';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1079:
+	uiCodeNb := 3127;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1079 - Awaria napiêcia zasilania czujnika 1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1080:
+	uiCodeNb := 3128;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1080 - Awaria napiêcia zasilania czujnika 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+105:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 3129;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 105 - B³¹d elektryczny temperatury powietrza do³adowanego - zwarcie obowdu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3130;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 105 - B³¹d elektryczny temperatury powietrza do³adowanego - zwarcie obowdu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	0:
+		uiCodeNb := 3131;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 105 - Temperatura ch³odnicy powietrza do³adowuj¹cego. Rozpoczê³a siê reakcja systemu. Wysoka temperatura ch³odnicy powietrza do³adowanego. Przekroczono próg ostrzegawczy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+4361:
+	uiCodeNb := 3132;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4361 - Awaria czujnika temperatury spalin katalizatora DEF - Zwarcie obwodu do zasilania ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4361:
+	uiCodeNb := 3133;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4361 - Awaria czujnika temperatury spalin katalizatora DEF - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1761:
+	uiCodeNb := 3134;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1761 - Poziom w zbiorniku DEF - przekroczony próg ostrzegawczy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1761:
+	uiCodeNb := 3135;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1761 - Poziom w zbiorniku DEF - b³¹d wiarygodnoœci';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4366:
+	uiCodeNb := 3136;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4366 - G³ówny przekaŸnik SCR (Strona wtórna) - Zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4366:
+	uiCodeNb := 3137;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4366 - G³ówny przekaŸnik SCR (Strona wtórna) - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4366:
+	uiCodeNb := 3138;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4366 - G³ówny przekaŸnik SCR - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523719:
+	uiCodeNb := 3139;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523719 - PrzekaŸnik nagrzewnicy SCR/Modu³ zasilania DEF - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523719:
+	uiCodeNb := 3140;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523719 - PrzekaŸnik nagrzewnicy SCR/Modu³ zasilania DEF -Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523719:
+	uiCodeNb := 3141;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523719 - PrzekaŸnik nagrzewnicy SCR/Modu³ zasilania DEF -Zwarcie do obwodu masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4243:
+	uiCodeNb := 3142;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4243 - Podgrzewacz SCR - B³¹d grza³ki przewodu ciœnieniowego. Diagnostyka nagrzewnicy systemu SCR zg³asza b³¹d - wy³¹czyæ system SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 3143;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523718 - Zawór ogrzewania zbiornika - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 3144;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523718 - Zawór ogrzewania zbiornika - Przegrzanie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 3145;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523718 - Zawór ogrzewania zbiornika - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 3146;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523718 - Zawór ogrzewania zbiornika - Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4341:
+	uiCodeNb := 3147;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4341 - PrzekaŸnik nagrzewnicy SCR (Strona pierwotna lini zasilajacej DEF - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4341:
+	uiCodeNb := 3148;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4341 - PrzekaŸnik nagrzewnicy SCR (Strona pierwotona linii zasilaj¹cej DEF - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4341:
+	uiCodeNb := 3149;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4341 - PrzekaŸnik nagrzewnicy SCR (Strona pierwotona linii zasilaj¹cej DEF - Zwarcie do obwodu masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4375:
+	uiCodeNb := 3150;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4375 - Silnik pompy mocznika - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4375:
+	uiCodeNb := 3151;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4375 - Silnik pompy mocznika - Zwarcie do obwodu zasilania ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4375:
+	uiCodeNb := 3152;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4375 - Silnik pompy mocznika - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4334:
+	uiCodeNb := 3153;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4334 - Czujnik ciœnienia mocznika - Uszkodzony czujnik ciœnienia';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4334:
+	uiCodeNb := 3154;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4334 - Czujnik ciœnienia mocznika - Wysoki sygna³ nie jest wiarygodny';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4334:
+	uiCodeNb := 3155;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4334 - Ciœnienie modu³u zasilaj¹cego DEF - b³¹d wiarygodnoœci';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4376:
+	uiCodeNb := 3156;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4376 - Zawór zwrotny SCR - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4376:
+	uiCodeNb := 3157;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4376 - Zawór zwrotny SCR - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4376:
+	uiCodeNb := 3158;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4376 - Zawór zwrotny SCR - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3031:
+	uiCodeNb := 3159;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3031 - Temperatura w zbiorniku DEF za wysoka';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3031:
+	uiCodeNb := 3160;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3031 - Temperatura w zbiorniku DEF poni¿ej dolnego progu fizycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+168:
+	CASE b_SzukaneFMI OF
+	0:
+		uiCodeNb := 3161;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 168 - Przekroczony górny zakres napiêcia zasilania ';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 3162;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 168 - Napiêcie zasilania poni¿ej progu bezpieczeñstwa';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+524038:
+	uiCodeNb := 3163;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524038 - Przekrczony limit czasowy ramki ComMS_Sys1TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524039:
+	uiCodeNb := 3164;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524039 - Przekrczony limit czasowy ramki ComMS_Sys2TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524040:
+	uiCodeNb := 3165;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524040 - Przekrczony limit czasowy ramki ComMS_Sys3TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524041:
+	uiCodeNb := 3166;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524041 - Przekrczony limit czasowy ramki ComMS_Sys4TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524042:
+	uiCodeNb := 3167;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524042 - Przekrczony limit czasowy ramki ComMS_Sys5TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524043:
+	uiCodeNb := 3168;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524043 - Przekrczony limit czasowy ramki ComMS_Sys6TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524045:
+	uiCodeNb := 3169;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524045 - B³¹d licznika CAN ramki ComMSMoFoVR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524046:
+	uiCodeNb := 3170;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524046 - B³¹d sumy kontrolnej wiadomoœci CAN-Recive';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+525047:
+	uiCodeNb := 3171;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 525047 - B³¹d d³ugoœci wiadomoœci ramki ComMsMoFOvR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524048:
+	uiCodeNb := 3172;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524048 - Przekroczony czas ramki ComMSMoFovR1TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523995:
+	uiCodeNb := 3173;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523995 - Sprawdzenie braku programowania wartoœci regulacji wtryskiwacza (IMA) wtryskiwacz 7 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523996:
+	uiCodeNb := 3174;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523996 - Sprawdzenie braku programowania wartoœci regulacji wtryskiwacza (IMA) wtryskiwacz 8 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523997:
+	uiCodeNb := 3175;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523997 - Wtryskiwacz 1 - zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523998:
+	uiCodeNb := 3176;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523998 - Wtryskiwacz 2 - zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523999:
+	uiCodeNb := 3177;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523999 - Usterka wyjœcia stopnia mocy wtryskiwacza SLAVE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524000:
+	uiCodeNb := 3178;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524000 - Przerwanie po³¹czenia elektrycznego wtryskiwacz 7 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524000:
+	uiCodeNb := 3179;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524000 - Zwarcie obwodu elektrycznego wtryskiwacz 7 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524001:
+	uiCodeNb := 3180;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524001 - Przerwanie po³¹czenia elektrycznego wtryskiwacz 8 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524001:
+	uiCodeNb := 3181;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524001 - Zwarcie obwodu elektrycznego wtryskiwacz 8 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+2797:
+	uiCodeNb := 3182;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 2797 - Zwarcie do uziemienia cylindra cylinder 0';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+2798:
+	uiCodeNb := 3183;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 2798 - Zwarcie do uziemienia cylindra cylinder 1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524036:
+	uiCodeNb := 3184;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524036 - B³¹d przekroczenia limitu czasu w komunikacji SPI';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+164:
+	uiCodeNb := 3185;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 164 - Funkcja bezpieczeñstwa ciœnienia szyny nie jest wykonana prawid³owo';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3186;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Westgate - b³¹d wewnêtrzny';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3187;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Westgate - Zbyt du¿e odchylenie si³ownika westgate - wymagana ponowna kalibracja ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3188;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Westgate - Brak komunikacji o stanie z ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3189;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Westgate - Zablokowany si³ownik';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 3190;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524034 - Separator dysków - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 3191;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524034 - Separator dysków - Powy¿ej temperatury';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 3192;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524034 - Separator dysków - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 3193;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524034 - Separator dysków - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524068:
+	uiCodeNb := 3194;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524068 - Master ECU i Slave ECU zosta³y zidentyfikowane jako te same typy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524052:
+	uiCodeNb := 3195;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524052 - Zestawy danych lub oprogramowanie Master ECU i Slave ECU nie s¹ identyczne';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524096:
+	uiCodeNb := 3196;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524096 - Kontrola systemu SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523924:
+	uiCodeNb := 3197;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523924 - B³¹d zwarcia do akumulatora przekaŸnika si³ownika 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523924:
+	uiCodeNb := 3198;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523924 - B³¹d zwarcia do masy przekaŸnika si³ownika 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523925:
+	uiCodeNb := 3199;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523925 - B³¹d zwarcia do akumulatora przekaŸnika si³ownika 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523925:
+	uiCodeNb := 3200;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523925 - B³¹d zwarcia do masy przekaŸnika si³ownika 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523927:
+	uiCodeNb := 3201;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523927 - B³¹d zwarcia do akumulatora przekaŸnika si³ownika 6';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523927:
+	uiCodeNb := 3202;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523927 - B³¹d zwarcia do masy przekaŸnika si³ownika 6';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1109:
+	uiCodeNb := 3203;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1109 - Zignorowano ¿¹danie wy³¹czenia silnika spalinowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523698:
+	uiCodeNb := 3204;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523698 - ¯¹danie wy³¹czenia silnika z funkcji nadzoru ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523939:
+	uiCodeNb := 3205;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523939 - Przekroczono czas ramki kalibracyjnej czujnika katalitycznego NOx';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523942:
+	uiCodeNb := 3206;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523942 - Komunikat kalibracyjny 1 czujnika po katalizatorze NOx uleg³ awarii';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523211:
+	uiCodeNb := 3207;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523211 - B³¹d przekroczenia limitu czasu CAN ramki EBC1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523741:
+	uiCodeNb := 3208;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523741 - ¯¹danie wy³¹czenia silnika przez CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523766:
+	uiCodeNb := 3209;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523766 - B³¹d przekroczenia limitu czasu CAN ramki aktywnej TSC1AE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523767:
+	uiCodeNb := 3210;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523767 - B³¹d przekroczenia limitu czasu CAN ramki pasywnej TSC1AE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523768:
+	uiCodeNb := 3211;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523768 - B³¹d przekroczenia limitu czasu CAN ramki aktywnej TSC1AR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523769:
+	uiCodeNb := 3212;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523769 - B³¹d przekroczenia limitu czasu CAN ramki pasywnej TSC1AR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523777:
+	uiCodeNb := 3213;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523777 - B³¹d pasywnego przekroczenia limitu czasu CAN ramki TSC1TE - wartoœæ zadana';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523778:
+	uiCodeNb := 3214;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523778 - B³¹d przekroczenia limitu czasu CAN ramki TSC1TR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523779:
+	uiCodeNb := 3215;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523779 - B³¹d pasywnego przekroczenia limitu czasu CAN ramki TSC1TR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523605:
+	uiCodeNb := 3216;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523605 - B³¹d przekroczenia limitu czasu CAN ramki TSC1AE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+190:
+	CASE b_SzukaneFMI OF
+	12:
+		uiCodeNb := 3217;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 190 - Czujnik wa³ka rozrz¹du - poza zasiêgiem/sygna³ zak³ócony/brak sygna³u';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	8:
+		uiCodeNb := 3218;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 190 - Czujnik wa³u korbowego - poza zasiêgiem/sygna³ zak³ócony/brak sygna³u';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 3219;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 97 - B³¹d czujnika wody w paliwie - górny sygna³ poza zakresem';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3220;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 97 - B³¹d czujnika wody w paliwie - dolny sygna³ poza zakresem';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+94:
+	uiCodeNb := 3221;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 94 - B³¹d czujnika niskiego ciœnienia paliwa - górny sygna³ poza zakresem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+729:
+	uiCodeNb := 3222;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 729 - Otwarte obci¹¿enie przekaŸnika wspomagania rozruchu na zimno';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+729:
+	uiCodeNb := 3223;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 729 - Urz¹dzenie nagrzewnicy powietrza dolotowego: Zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+729:
+	uiCodeNb := 3224;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 729 - Urz¹dzenie nagrzewnicy powietrza dolotowego: Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523898:
+	uiCodeNb := 3225;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523898 - Brak programowania wartoœci regulacji wtryskiwacza 4';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523899:
+	uiCodeNb := 3226;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523899 - Brak programowania wartoœci regulacji wtryskiwacza 5';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523615:
+	uiCodeNb := 3227;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523615 - System paliwowy - przegrzanie ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 3228;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523612 - Diagnostyczna kontrola usterek - Istniej¹ usterki w silniku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+107:
+	uiCodeNb := 3229;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 107 - Ciœnienie ró¿nicowe filtra paliwa - Zatkany filtr powietrza';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+102:
+	CASE b_SzukaneFMI OF
+	2:
+		uiCodeNb := 3230;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 102 - Ciœnienie za ch³odnic¹ powietrza do³adowanego - b³¹d wiarygodnoœci';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 3231;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 102 - Ciœnienie za ch³odnic¹ powietrza do³adowanego - ciœnienie poni¿ej dolego progu ostrzegawczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 3232;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 29 - Prze³¹cznik kontroli biegu ja³owego przepustnicy rêcznej - zwarcie do obwodu zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 3233;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 1 STP SPN 29 - Prze³¹cznik kontroli biegu ja³owego przepustnicy rêcznej - zwarcie do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523601:
+	uiCodeNb := 3234;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 523601 - Awaria napiêcia zasilania czujnika 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+667:
+	uiCodeNb := 3235;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 667 - PrzekaŸnik rozrusznika. Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+667:
+	uiCodeNb := 3236;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 667 - Strona przekaŸnik rozrusznika. Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+667:
+	uiCodeNb := 3237;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 667 - PrzekaŸnik rozrusznika po stronie niskiej - spadek pr¹du powy¿ej zakresu docelowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1136:
+	uiCodeNb := 3238;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1136 - Temperatura wewnêtrzna ECU poza zakresem ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524121:
+	uiCodeNb := 3239;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524121 - B³¹d przekroczenia limitu czasu CAN ramki ComRxTrbChActr';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524156:
+	uiCodeNb := 3240;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524156 - B³¹d przekroczenia limitu czasu CAN ramki ComRxEBC2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3241;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - wykryto blokadê mechaniczn¹ ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3242;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - CAN error';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3243;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - b³¹d kalibracji EOL';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3244;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - wewnêtrzny b³¹d elektryczny';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3245;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - pr¹d powy¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3246;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - napiêcie zasilania powy¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3247;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - napiêcie zasilania poni¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 3248;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 1188 - Zawór westgate turbosprê¿arki - temperatura krytycznie wysoka';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524147:
+	uiCodeNb := 3249;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524147 - System SCR - zawór zmiany kierunku zablokowany';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524175:
+	uiCodeNb := 3250;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524175 - System SCR-CAT - emisje NOx powy¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524178:
+	uiCodeNb := 3251;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524178 - System SCR - ciœnienie DEF poza zakresem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524067:
+	uiCodeNb := 3252;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524067 - Temperatura grza³ki modu³u zasilaj¹cego - b³ad wiarygodnoœci';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524152:
+	uiCodeNb := 3253;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524152 - Czujnik jakoœci mocznika - przekroczenie limitu czasu ramki CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524153:
+	uiCodeNb := 3254;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524153 - Poziom mocznika w zbiorniku i temperatura zbiornika mocznika - przekroczono limit czasu ramki CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524189:
+	uiCodeNb := 3255;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524189 - Master/Slave CAN zak³ócony';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524190:
+	uiCodeNb := 3256;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524190 - Niewystarczaj¹ca iloœæ mocznika w zbiorniku lub niska jakoœæ mocznika';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524191:
+	uiCodeNb := 3257;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524191 - Wykryto niski poziom mocznika w zbiorniku ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 3258;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3519 - Za wysoka temperatura zbiornika mocznika';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 3259;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3519 - Czujnik jakoœci mocznika - zwarcie wewnêtrznego czujnika temperatury do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 3260;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3519 - Czujnik jakoœci mocznika - zwarcie wewnêtrznego czujnika temperatury do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 3261;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3520 - Czujnik jakoœci mocznika - zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 3262;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3520 - Czujnik jakoœci mocznika - zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 3263;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3520 - Czujnik jakoœci mocznika - silnie rozcieñczony mocznik lub inna ciecz w zbiorniku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 3264;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3520 - Czujnik jakoœci mocznika nie mo¿e byæ zmierzona w okreœlonych ramach czasowych';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 3265;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3520 - Jakoœæ mocznika w UQS nieprawid³owa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 3266;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3520 - Rozcieñczony mocznik w zbiorniku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 3267;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 3519 - Nieprawid³owa temperatura w UQS';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524201:
+	uiCodeNb := 3268;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524201 - Monitorowanie wy³¹czenia SCREff na Slave ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524202:
+	uiCodeNb := 3269;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524202 - Aktywny kod b³êdu SCR w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524203:
+	uiCodeNb := 3270;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524203 - Awaria poziomu zbiornika mocznika jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524204:
+	uiCodeNb := 3271;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524204 - Awaria SCR jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524205:
+	uiCodeNb := 3272;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524205 - Awaria SCR Co2Off jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524206:
+	uiCodeNb := 3273;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524206 - Awaria dozowania mocznika jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524233:
+	uiCodeNb := 3274;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524233 - B³¹d grupowy dotycz¹cy b³êdów EEPROM w podrzêdnej jednostce steruj¹cej ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524234:
+	uiCodeNb := 3275;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524234 - B³¹d grupowy dotycz¹cy b³êdów baterii w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524235:
+	uiCodeNb := 3276;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524235 - B³¹d grupowy dotycz¹cy b³êdów komunikacji CAN w podrzêdnej jednostce sterujacej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524236:
+	uiCodeNb := 3277;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524236 - B³¹d grupowy dotycz¹cy b³êdów monitorowania podrzêdnego ECM w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524237:
+	uiCodeNb := 3278;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524237 - B³¹d grupowy dotycz¹cy b³êdów OCWDA/SSPMon w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524238:
+	uiCodeNb := 3279;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524238 - B³¹d grupowy dotycz¹cy b³êdów TECU w podrzêdnej jednostce steruj¹cej ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524242:
+	uiCodeNb := 3280;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524242 - B³¹d grupowy dotycz¹cy b³êdów SW reset w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524243:
+	uiCodeNb := 3281;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 524243 - B³¹d grupowy dotycz¹cy b³êdów kontroli prêdkoœci silnika w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4171:
+	uiCodeNb := 3282;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 1 STP SPN 4171 - Dynamiczna kontrola temperatury przed SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+168:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 6001;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 168 -Napiêcie akumulatora przekracza próg ostrzegawczy. Mo¿liwe zwarcie obwodu ';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6002;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 168 - Napiêcie akumulatora jest poni¿ej progu ostrzegawczego. Mo¿liwe zwarcie obwodu do masy. ';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	2:
+		uiCodeNb := 6003;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 168 - Wysokie napiêcie akumulatora. Przekroczono próg ostrzegawczy.';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	2:
+		uiCodeNb := 6004;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 168 -Wysokie napiêcie akumulatora. Przekroczono próg startu.';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+1235:
+	uiCodeNb := 6005;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN - 1235 - B³¹d magistrali CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+639:
+	uiCodeNb := 6006;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN - 639 - CAN-BUS 0: "BusOff-Status"';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1231:
+	uiCodeNb := 6007;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN - 1231 - CAN-BUS 1: "BusOff-Status"';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1235:
+	uiCodeNb := 6008;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN - 1235 - CAN-BUS 2: "BusOff-Status"';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+102:
+	uiCodeNb := 6009;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN - 102 - B³¹d ciœnienia powietrza do³adowanego / Ciœnienie powietrza do³adowanego powy¿ej progu ostrzegawczego / Ciœnienie powietrza do³adowanego poni¿ej progu ostrzegawczego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+110:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 6010;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6011;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	0:
+		uiCodeNb := 6012;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego: Temperatura p³ynu ch³odz¹cego powy¿ej progu wy³¹czenia. Rozpoczêto reakcjê systemu';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 6013;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 110 - B³¹d czujnika temperatury p³ynu ch³odniczego: SprawdŸ zakres fizyczny niski dla temperatury p³ynu ch³odniczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+111:
+	uiCodeNb := 6014;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 111 - Niski poziom p³ynu ch³odniczego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523717:
+	uiCodeNb := 6015;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523717 - B³ad ramki CAN AmbCon';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523603:
+	uiCodeNb := 6016;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523603 - B³¹d ramki CAN AMB';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3224:
+	uiCodeNb := 6017;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3224 - B³¹d ramki AT1IG1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3224:
+	uiCodeNb := 6018;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3224 - B³¹d DLC czujnika CAN-recive ramka AT1IG1Vol NOX.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 6019;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3234 - B³¹d ramki AT1OG1Vol';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 6020;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3234 - B³¹d DLC czujnika CAN-recive ramka AT1O1Vol.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 6021;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3234 - DFC dla b³êdu wiarygodnoœci min dla czujnika Nox za SCR kat.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3234:
+	uiCodeNb := 6022;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3234 - DFC dla b³êdu wiarygodnoœci min dla czujnika Nox przed SCR kat.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523704:
+	uiCodeNb := 6023;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523704 - B³¹d ramki EEC3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523212:
+	uiCodeNb := 6024;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523212 - B³ad ramki ComEngPrt';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523240:
+	uiCodeNb := 6025;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523240 - B³¹d ramki FunModCtl';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523216:
+	uiCodeNb := 6026;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523216 - B³¹d ramki PrHtEnCmd';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523776:
+	uiCodeNb := 6027;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523776 - B³¹d ramki TSC1TE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523788:
+	uiCodeNb := 6028;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523788 - B³¹d ramki TrbCH';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+898:
+	uiCodeNb := 6029;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 898 - B³¹d ramki TSC1TE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+520:
+	uiCodeNb := 6030;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 520 - B³¹d ramki TSC1TR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523982:
+	uiCodeNb := 6031;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523982 - Diagnostyka stopnia mocy wy³¹czona:  Wysokie napiêcie akumulatora';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523982:
+	uiCodeNb := 6032;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523982 - Diagnostyka stopnia mocy wy³¹czona:  Niskie napiêcie akumulatora';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523090:
+	uiCodeNb := 6033;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523090 - B³¹d wiarygodnoœci hamulca silnikowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+630:
+	uiCodeNb := 6034;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 630 - B³¹d dostêpu do pamiêci EEPROM';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 6035;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523612 - Wewnêtrzny b³¹d oprogramowania ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 6036;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523612 - Wewnêtrzny b³¹d oprogramowania ECU / Napiêcie zasilania powy¿ej progu bezpieczeñstwa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 6037;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523612 - Wewnêtrzny b³¹d oprogramowania ECU / Napiêcie zasilania poni¿ej progu bezpieczeñstwa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+190:
+	CASE b_SzukaneFMI OF
+	0:
+		uiCodeNb := 6038;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 190 - Przekroczona prêdkoœæ obrotowa silnika: Prêdkoœæ silnika powy¿ej progu ostrzegawczego / Prêdkoœæ silnika powy¿ej progu ostrzegawczego (Poziom FOC 1)';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	11:
+		uiCodeNb := 6039;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 190 - Przekroczona prêdkoœæ obrotowa silnika: Prêdkoœæ silnika powy¿ej progu ostrzegawczego (Poziom FOC 2)';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 6040;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 171 - B³¹d czujnika temperatury otoczenia systemu SCR: B³¹d czujnika temperatury otoczenia systemu SCR.  Temperatura powietrza na wlocie systemu DPF - Sygna³ wysoki';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6041;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 171 - B³¹d czujnika temperatury otoczenia systemu SCR: B³¹d czujnika temperatury otoczenia systemu SCR.  Temperatura powietrza na wlocie systemu DPF - Sygna³ niski';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	8:
+		uiCodeNb := 6042;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 190 - B³¹d czujnika prêdkoœci wa³ka rozrz¹du: Czujnik prêdkoœci wa³ka rozrz¹du. Zak³ócony sygna³';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	2:
+		uiCodeNb := 6043;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 190 - B³¹d czujnika prêdkoœci wa³ka rozrz¹du: K¹t przesuniêcia miêdzy korb¹ a czujnikiem wa³ka rozrz¹du jest zbyt du¿y.';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	12:
+		uiCodeNb := 6044;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 190 - B³¹d czujnika prêdkoœci wa³ka rozrz¹du: Wykrywanie prêdkoœci poza zasiêgiem, zak³ócenie sygna³u lub brak sygna³u';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 6045;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 94 - Niskie ciœnienie paliwa: B³¹d czujnika niskiego ciœnienia paliwa - Sygna³ wysoki';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6046;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 94 - Niskie ciœnienie paliwa: B³¹d czujnika niskiego ciœnienia paliwa - Sygna³ niski';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 6047;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 94 - Niskie ciœnienie paliwa: Niskie ciœnienie paliwa, przekroczony próg ostrzegawczy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 6048;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 94 - Niskie ciœnienie paliwa: Niskie ciœnienie paliwa, przekroczony próg wy³¹czenia';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523618:
+	uiCodeNb := 6049;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523618 - B³¹d czzujnika temperatury oleju w skrzyni biegów: B³¹d czujnika temperatury oleju w skrzyni biegów - Sygna³ wysoki';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523618:
+	uiCodeNb := 6050;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523618 - B³¹d czzujnika temperatury oleju w skrzyni biegów: B³¹d czujnika temperatury oleju w skrzyni biegów - Sygna³ niski';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523619:
+	uiCodeNb := 6051;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523619 - Temperatura spalin SCR-CAT';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+676:
+	uiCodeNb := 6052;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 676 - B³¹d przekaŸnika wspomagania rozruchu na zimno: B³¹d przekaŸnika wspomagania rozruchu na zimno/PrzekaŸnik wspomagania rozruchu na zimno - Otwarte obci¹¿enie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523895:
+	uiCodeNb := 6053;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523895 - Brak regulacji wtryskiwacza 1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523896:
+	uiCodeNb := 6054;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523896 - Brak regulacji wtryskiwacza 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523897:
+	uiCodeNb := 6055;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523897 - Brak regulacji wtryskiwacza 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523900:
+	uiCodeNb := 6056;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523900 - Brak regulacji wtryskiwacza 6';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523350:
+	uiCodeNb := 6057;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523350 - Wtryskiwacz cylinder rz¹d 1: Zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523352:
+	uiCodeNb := 6058;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523352 - Wtryskiwacz cylinder rz¹d 2: Zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523354:
+	uiCodeNb := 6059;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523354 - Usterka wtryskiwacza';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+651:
+	uiCodeNb := 6060;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 651 - Wtryskiwacz 1 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+652:
+	uiCodeNb := 6061;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 652 - Wtryskiwacz 2 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+653:
+	uiCodeNb := 6062;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 653 - Wtryskiwacz 3 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+654:
+	uiCodeNb := 6063;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 654 - Wtryskiwacz 5 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+655:
+	uiCodeNb := 6064;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 655 - Wtryskiwacz 5 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+656:
+	uiCodeNb := 6065;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 656 - Wtryskiwacz 6 - przerwanie po³¹czenia elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+651:
+	uiCodeNb := 6066;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 651 - Wtryskiwacz 1 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+652:
+	uiCodeNb := 6067;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 652 - Wtryskiwacz 2 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+653:
+	uiCodeNb := 6068;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 653 - Wtryskiwacz 3 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+654:
+	uiCodeNb := 6069;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 654 - Wtryskiwacz 4 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+655:
+	uiCodeNb := 6070;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 655 - Wtryskiwacz 5 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+656:
+	uiCodeNb := 6071;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 656 - Wtryskiwacz 6 - zwarcie obwodu elektrycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523615:
+	uiCodeNb := 6072;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523615 - Wykrywanie otwartego b³êdu obci¹¿enia w dozowniku uk³adu paliwowego - zwarcie do plusa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523615:
+	uiCodeNb := 6073;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523615 - Wykrywanie otwartego b³êdu obci¹¿enia w dozowniku uk³adu paliwowego - zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+100:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 6074;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 100 - B³¹d czujnika ciœnienia oleju - zwarcie obwodu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6075;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 100 - B³¹d czujnika ciœnienia oleju - zwarcie obwodu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 6076;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 100 - Niskie ciœnienie oleju - Ciœnienie oleju poni¿ej progu ostrzegawczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 6077;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 107 - B³¹d czujnika ró¿nicy ciœnieñ na filtrze powietrza/ Zwarcie obwodu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	0:
+		uiCodeNb := 6078;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 107 - B³¹d czujnika ró¿nicy ciœnieñ na filtrze powietrza/ Zwarcie obwodu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 6079;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 102 - Ciœnieniowa ch³odnia powietrza do³adowuj¹cego / Zwarcie obwodu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6080;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 102 - Ciœnieniowa ch³odnia powietrza do³adowuj¹cego / Zwarcie obwodu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523009:
+	uiCodeNb := 6081;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523009 - B³¹d zawór PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523009:
+	uiCodeNb := 6082;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523009 - Przekroczono czas otwarcia zaworu nadmiarowego ciœnienia PRV ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 6083;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523470 Otwarcie zaworu PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 6084;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523470 Otwarcie zaworu PRV / Zawór nadmiarowy ciœnienia zmuszony do otwarcia. Warunki odciêcia.';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 6085;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523470 Otwarty zawor PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 6086;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523470 Ciœnienie szyny poza zakresem tolerancji. PRV nie mo¿e byæ otwierany w tym punkcie pracy pod wp³ywem szoku ciœnieniowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523470:
+	uiCodeNb := 6087;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523470 Przekroczono maksymalne ciœnienie szyny PRV';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523613:
+	uiCodeNb := 6088;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523613 B³êdne ciœnienie w szynie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523614:
+	uiCodeNb := 6089;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523614 - B³¹d czujnika ciœnienia szyny - Przekroczono minimalne ciœnienie szyny ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523614:
+	uiCodeNb := 6090;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523614 - B³¹d czujnika ciœnienia szyny - Dozownik ciœnienia w szynie, wartoœæ zadana dozownika w trybie wybiegu nie jest prawdopodbna';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+157:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 6091;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 157 - B³¹d czujnika ciœnienia szyny - Napiêcie czujnika powy¿ej górnej granicy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6092;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 157 - B³¹d czujnika ciœnienia szyny - Napiêcie czujnika poni¿ej dolnej granicy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523633:
+	uiCodeNb := 6093;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523633 - D³ugoterminowy wspó³czynnik adaptacji poni¿ej progu';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 6094;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 6095;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 6096;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 6097;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4345 - B³¹d wiarygodnoœci czujnika ciœnienia w przewodzie zwrotnym - Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4345:
+	uiCodeNb := 6098;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4345 - B³¹d wiarygnodnoœci czujnika ciœnienia w przewodzie zwrotnym - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4343:
+	uiCodeNb := 6099;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4343 - Ogólny b³¹d kontroli ciœnienia (SCR)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4343:
+	uiCodeNb := 6100;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4343 - Ogólny b³¹d kontroli ciœnienia (SCR) - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4374:
+	uiCodeNb := 6101;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4374 - B³¹d zaworu dozuj¹cego stabilizacji ciœnienia';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 6102;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523632 - B³¹d systemu SCR - Zbyt wysokie ciœnienie pompy w dozwoniku SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 6103;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523632 - B³¹d systemu SCR - Zbyt niskie ciœnienie pompy w dozwoniku SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 6104;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523632 - B³¹d systemu SCR - Przeci¹¿enie ciœnieniowe systemu SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 6105;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523632 - B³¹d systemu SCR - B³¹d wzrostu ciœnienia systemu SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 6106;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523632 - B³¹d systemu SCR - Zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 6107;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523632 - B³¹d systemu SCR - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523632:
+	uiCodeNb := 6108;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523632 - B³¹d systemu SCR - silnik pompy modu³u zasilania mocznikiem niedostêpny do uruchomienia';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 6109;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4365 - Zbyt wysoka temperatura zbiornika DEF';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 6110;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4365 - B³¹d czujnika temperatury zbiornika mocznika - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 6111;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4365 - B³¹d czujnika temperatury zbiornika mocznika - Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 6112;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4365 - Temperatura zbiornika mocznika jest powy¿ej progu ostrzegawczego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4365:
+	uiCodeNb := 6113;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4365 - Czujnik jakoœci mocznika - Temperatura poza zakresem fizycznym';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3241:
+	uiCodeNb := 6114;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3241 - Za wysoka temperatura katalizatora SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3361:
+	uiCodeNb := 6115;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3361 - Zablokowany zawór dozuj¹cy DEF';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3361:
+	uiCodeNb := 6116;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3361 - Zawór dozuj¹cy DEF - zbyt du¿a moc na koñcu wtrysku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523720:
+	uiCodeNb := 6117;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523720 - B³¹d wiarygodnoœci temperatury podgrzewacza modu³u zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523720:
+	uiCodeNb := 6118;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523720 Temperatura grza³ki modu³u zasilajacego DEF - cykl pracy w zakresie awarii';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523721:
+	uiCodeNb := 6119;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523721 - B³¹d wiarygodnoœci temperatury modu³u zasilania czujnika DEF';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523721:
+	uiCodeNb := 6120;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523721 Brak pomiaru temperatury modu³u zasilania mocznikiem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523721:
+	uiCodeNb := 6121;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523721 - Temperatura modu³u zasilaj¹cego DEF - cykl pracy w zakresie awarii';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523981:
+	uiCodeNb := 6122;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523981 - Zbiornik DEF bez funkcji grzania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523722:
+	uiCodeNb := 6123;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523722 - Sygna³ PWM modu³u DEF poza zakresem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3532:
+	uiCodeNb := 6124;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3532 - Napiêcie czujnika poziomu DEF w zbiorniku poza zakresem - zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3532:
+	uiCodeNb := 6125;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3532 - Napiêcie czujnika poziomu DEF w zbiorniku poza zakresem - zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3532:
+	uiCodeNb := 6126;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3532 - Czujnik jakoœci mocznika - poziom w zbiorniku poza zakresem fizycznym';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1079:
+	uiCodeNb := 6127;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1079 - Awaria napiêcia zasilania czujnika 1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1080:
+	uiCodeNb := 6128;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1080 - Awaria napiêcia zasilania czujnika 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+105:
+	CASE b_SzukaneFMI OF
+	3:
+		uiCodeNb := 6129;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 105 - B³¹d elektryczny temperatury powietrza do³adowanego - zwarcie obowdu do zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6130;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 105 - B³¹d elektryczny temperatury powietrza do³adowanego - zwarcie obowdu do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	0:
+		uiCodeNb := 6131;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 105 - Temperatura ch³odnicy powietrza do³adowuj¹cego. Rozpoczê³a siê reakcja systemu. Wysoka temperatura ch³odnicy powietrza do³adowanego. Przekroczono próg ostrzegawczy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+4361:
+	uiCodeNb := 6132;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4361 - Awaria czujnika temperatury spalin katalizatora DEF - Zwarcie obwodu do zasilania ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4361:
+	uiCodeNb := 6133;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4361 - Awaria czujnika temperatury spalin katalizatora DEF - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1761:
+	uiCodeNb := 6134;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1761 - Poziom w zbiorniku DEF - przekroczony próg ostrzegawczy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1761:
+	uiCodeNb := 6135;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1761 - Poziom w zbiorniku DEF - b³¹d wiarygodnoœci';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4366:
+	uiCodeNb := 6136;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4366 - G³ówny przekaŸnik SCR (Strona wtórna) - Zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4366:
+	uiCodeNb := 6137;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4366 - G³ówny przekaŸnik SCR (Strona wtórna) - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4366:
+	uiCodeNb := 6138;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4366 - G³ówny przekaŸnik SCR - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523719:
+	uiCodeNb := 6139;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523719 - PrzekaŸnik nagrzewnicy SCR/Modu³ zasilania DEF - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523719:
+	uiCodeNb := 6140;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523719 - PrzekaŸnik nagrzewnicy SCR/Modu³ zasilania DEF -Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523719:
+	uiCodeNb := 6141;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523719 - PrzekaŸnik nagrzewnicy SCR/Modu³ zasilania DEF -Zwarcie do obwodu masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4243:
+	uiCodeNb := 6142;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4243 - Podgrzewacz SCR - B³¹d grza³ki przewodu ciœnieniowego. Diagnostyka nagrzewnicy systemu SCR zg³asza b³¹d - wy³¹czyæ system SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 6143;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523718 - Zawór ogrzewania zbiornika - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 6144;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523718 - Zawór ogrzewania zbiornika - Przegrzanie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 6145;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523718 - Zawór ogrzewania zbiornika - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523718:
+	uiCodeNb := 6146;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523718 - Zawór ogrzewania zbiornika - Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4341:
+	uiCodeNb := 6147;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4341 - PrzekaŸnik nagrzewnicy SCR (Strona pierwotna lini zasilajacej DEF - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4341:
+	uiCodeNb := 6148;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4341 - PrzekaŸnik nagrzewnicy SCR (Strona pierwotona linii zasilaj¹cej DEF - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4341:
+	uiCodeNb := 6149;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4341 - PrzekaŸnik nagrzewnicy SCR (Strona pierwotona linii zasilaj¹cej DEF - Zwarcie do obwodu masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4375:
+	uiCodeNb := 6150;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4375 - Silnik pompy mocznika - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4375:
+	uiCodeNb := 6151;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4375 - Silnik pompy mocznika - Zwarcie do obwodu zasilania ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4375:
+	uiCodeNb := 6152;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4375 - Silnik pompy mocznika - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4334:
+	uiCodeNb := 6153;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4334 - Czujnik ciœnienia mocznika - Uszkodzony czujnik ciœnienia';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4334:
+	uiCodeNb := 6154;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4334 - Czujnik ciœnienia mocznika - Wysoki sygna³ nie jest wiarygodny';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4334:
+	uiCodeNb := 6155;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4334 - Ciœnienie modu³u zasilaj¹cego DEF - b³¹d wiarygodnoœci';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4376:
+	uiCodeNb := 6156;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4376 - Zawór zwrotny SCR - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4376:
+	uiCodeNb := 6157;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4376 - Zawór zwrotny SCR - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4376:
+	uiCodeNb := 6158;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4376 - Zawór zwrotny SCR - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3031:
+	uiCodeNb := 6159;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3031 - Temperatura w zbiorniku DEF za wysoka';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3031:
+	uiCodeNb := 6160;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3031 - Temperatura w zbiorniku DEF poni¿ej dolnego progu fizycznego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+168:
+	CASE b_SzukaneFMI OF
+	0:
+		uiCodeNb := 6161;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 168 - Przekroczony górny zakres napiêcia zasilania ';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 6162;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 168 - Napiêcie zasilania poni¿ej progu bezpieczeñstwa';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+524038:
+	uiCodeNb := 6163;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524038 - Przekrczony limit czasowy ramki ComMS_Sys1TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524039:
+	uiCodeNb := 6164;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524039 - Przekrczony limit czasowy ramki ComMS_Sys2TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524040:
+	uiCodeNb := 6165;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524040 - Przekrczony limit czasowy ramki ComMS_Sys3TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524041:
+	uiCodeNb := 6166;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524041 - Przekrczony limit czasowy ramki ComMS_Sys4TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524042:
+	uiCodeNb := 6167;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524042 - Przekrczony limit czasowy ramki ComMS_Sys5TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524043:
+	uiCodeNb := 6168;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524043 - Przekrczony limit czasowy ramki ComMS_Sys6TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524045:
+	uiCodeNb := 6169;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524045 - B³¹d licznika CAN ramki ComMSMoFoVR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524046:
+	uiCodeNb := 6170;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524046 - B³¹d sumy kontrolnej wiadomoœci CAN-Recive';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+525047:
+	uiCodeNb := 6171;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 525047 - B³¹d d³ugoœci wiadomoœci ramki ComMsMoFOvR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524048:
+	uiCodeNb := 6172;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524048 - Przekroczony czas ramki ComMSMoFovR1TO';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523995:
+	uiCodeNb := 6173;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523995 - Sprawdzenie braku programowania wartoœci regulacji wtryskiwacza (IMA) wtryskiwacz 7 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523996:
+	uiCodeNb := 6174;
+	sPriority := 'C';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523996 - Sprawdzenie braku programowania wartoœci regulacji wtryskiwacza (IMA) wtryskiwacz 8 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523997:
+	uiCodeNb := 6175;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523997 - Wtryskiwacz 1 - zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523998:
+	uiCodeNb := 6176;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523998 - Wtryskiwacz 2 - zwarcie';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523999:
+	uiCodeNb := 6177;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523999 - Usterka wyjœcia stopnia mocy wtryskiwacza SLAVE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524000:
+	uiCodeNb := 6178;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524000 - Przerwanie po³¹czenia elektrycznego wtryskiwacz 7 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524000:
+	uiCodeNb := 6179;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524000 - Zwarcie obwodu elektrycznego wtryskiwacz 7 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524001:
+	uiCodeNb := 6180;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524001 - Przerwanie po³¹czenia elektrycznego wtryskiwacz 8 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524001:
+	uiCodeNb := 6181;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524001 - Zwarcie obwodu elektrycznego wtryskiwacz 8 (W kolejnoœci od zap³onu)';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+2797:
+	uiCodeNb := 6182;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 2797 - Zwarcie do uziemienia cylindra cylinder 0';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+2798:
+	uiCodeNb := 6183;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 2798 - Zwarcie do uziemienia cylindra cylinder 1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524036:
+	uiCodeNb := 6184;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524036 - B³¹d przekroczenia limitu czasu w komunikacji SPI';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+164:
+	uiCodeNb := 6185;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 164 - Funkcja bezpieczeñstwa ciœnienia szyny nie jest wykonana prawid³owo';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6186;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Westgate - b³¹d wewnêtrzny';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6187;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Westgate - Zbyt du¿e odchylenie si³ownika westgate - wymagana ponowna kalibracja ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6188;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Westgate - Brak komunikacji o stanie z ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6189;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Westgate - Zablokowany si³ownik';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 6190;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524034 - Separator dysków - Otwarty ³adunek';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 6191;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524034 - Separator dysków - Powy¿ej temperatury';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 6192;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524034 - Separator dysków - Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524034:
+	uiCodeNb := 6193;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524034 - Separator dysków - Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524068:
+	uiCodeNb := 6194;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524068 - Master ECU i Slave ECU zosta³y zidentyfikowane jako te same typy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524052:
+	uiCodeNb := 6195;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524052 - Zestawy danych lub oprogramowanie Master ECU i Slave ECU nie s¹ identyczne';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524096:
+	uiCodeNb := 6196;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524096 - Kontrola systemu SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523924:
+	uiCodeNb := 6197;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523924 - B³¹d zwarcia do akumulatora przekaŸnika si³ownika 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523924:
+	uiCodeNb := 6198;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523924 - B³¹d zwarcia do masy przekaŸnika si³ownika 2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523925:
+	uiCodeNb := 6199;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523925 - B³¹d zwarcia do akumulatora przekaŸnika si³ownika 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523925:
+	uiCodeNb := 6200;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523925 - B³¹d zwarcia do masy przekaŸnika si³ownika 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523927:
+	uiCodeNb := 6201;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523927 - B³¹d zwarcia do akumulatora przekaŸnika si³ownika 6';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523927:
+	uiCodeNb := 6202;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523927 - B³¹d zwarcia do masy przekaŸnika si³ownika 6';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1109:
+	uiCodeNb := 6203;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1109 - Zignorowano ¿¹danie wy³¹czenia silnika spalinowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523698:
+	uiCodeNb := 6204;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523698 - ¯¹danie wy³¹czenia silnika z funkcji nadzoru ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523939:
+	uiCodeNb := 6205;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523939 - Przekroczono czas ramki kalibracyjnej czujnika katalitycznego NOx';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523942:
+	uiCodeNb := 6206;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523942 - Komunikat kalibracyjny 1 czujnika po katalizatorze NOx uleg³ awarii';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523211:
+	uiCodeNb := 6207;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523211 - B³¹d przekroczenia limitu czasu CAN ramki EBC1';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523741:
+	uiCodeNb := 6208;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523741 - ¯¹danie wy³¹czenia silnika przez CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523766:
+	uiCodeNb := 6209;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523766 - B³¹d przekroczenia limitu czasu CAN ramki aktywnej TSC1AE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523767:
+	uiCodeNb := 6210;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523767 - B³¹d przekroczenia limitu czasu CAN ramki pasywnej TSC1AE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523768:
+	uiCodeNb := 6211;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523768 - B³¹d przekroczenia limitu czasu CAN ramki aktywnej TSC1AR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523769:
+	uiCodeNb := 6212;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523769 - B³¹d przekroczenia limitu czasu CAN ramki pasywnej TSC1AR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523777:
+	uiCodeNb := 6213;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523777 - B³¹d pasywnego przekroczenia limitu czasu CAN ramki TSC1TE - wartoœæ zadana';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523778:
+	uiCodeNb := 6214;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523778 - B³¹d przekroczenia limitu czasu CAN ramki TSC1TR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523779:
+	uiCodeNb := 6215;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523779 - B³¹d pasywnego przekroczenia limitu czasu CAN ramki TSC1TR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523605:
+	uiCodeNb := 6216;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523605 - B³¹d przekroczenia limitu czasu CAN ramki TSC1AE';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+190:
+	CASE b_SzukaneFMI OF
+	12:
+		uiCodeNb := 6217;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 190 - Czujnik wa³ka rozrz¹du - poza zasiêgiem/sygna³ zak³ócony/brak sygna³u';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	8:
+		uiCodeNb := 6218;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 190 - Czujnik wa³u korbowego - poza zasiêgiem/sygna³ zak³ócony/brak sygna³u';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 6219;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 97 - B³¹d czujnika wody w paliwie - górny sygna³ poza zakresem';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6220;
+		sPriority := 'B';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 97 - B³¹d czujnika wody w paliwie - dolny sygna³ poza zakresem';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+94:
+	uiCodeNb := 6221;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 94 - B³¹d czujnika niskiego ciœnienia paliwa - górny sygna³ poza zakresem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+729:
+	uiCodeNb := 6222;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 729 - Otwarte obci¹¿enie przekaŸnika wspomagania rozruchu na zimno';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+729:
+	uiCodeNb := 6223;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 729 - Urz¹dzenie nagrzewnicy powietrza dolotowego: Zwarcie obwodu do zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+729:
+	uiCodeNb := 6224;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 729 - Urz¹dzenie nagrzewnicy powietrza dolotowego: Zwarcie obwodu do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523898:
+	uiCodeNb := 6225;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523898 - Brak programowania wartoœci regulacji wtryskiwacza 4';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523899:
+	uiCodeNb := 6226;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523899 - Brak programowania wartoœci regulacji wtryskiwacza 5';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523615:
+	uiCodeNb := 6227;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523615 - System paliwowy - przegrzanie ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+523612:
+	uiCodeNb := 6228;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523612 - Diagnostyczna kontrola usterek - Istniej¹ usterki w silniku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+107:
+	uiCodeNb := 6229;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 107 - Ciœnienie ró¿nicowe filtra paliwa - Zatkany filtr powietrza';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+102:
+	CASE b_SzukaneFMI OF
+	2:
+		uiCodeNb := 6230;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 102 - Ciœnienie za ch³odnic¹ powietrza do³adowanego - b³¹d wiarygodnoœci';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	1:
+		uiCodeNb := 6231;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 102 - Ciœnienie za ch³odnic¹ powietrza do³adowanego - ciœnienie poni¿ej dolego progu ostrzegawczego';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	3:
+		uiCodeNb := 6232;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 29 - Prze³¹cznik kontroli biegu ja³owego przepustnicy rêcznej - zwarcie do obwodu zasilania';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	4:
+		uiCodeNb := 6233;
+		sPriority := 'A';
+		usType := 0;
+		uiDeviceNb := 1;
+		sDescription := 'Silnik spalinowy 2 SPTP SPN 29 - Prze³¹cznik kontroli biegu ja³owego przepustnicy rêcznej - zwarcie do masy';
+		sDescriptionStaff := '';
+		sDescriptionMaintenance := '';
+		BREAK;
+	END_CASE;
+	BREAK;
+523601:
+	uiCodeNb := 6234;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 523601 - Awaria napiêcia zasilania czujnika 3';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+667:
+	uiCodeNb := 6235;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 667 - PrzekaŸnik rozrusznika. Zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+667:
+	uiCodeNb := 6236;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 667 - Strona przekaŸnik rozrusznika. Zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+667:
+	uiCodeNb := 6237;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 667 - PrzekaŸnik rozrusznika po stronie niskiej - spadek pr¹du powy¿ej zakresu docelowego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1136:
+	uiCodeNb := 6238;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1136 - Temperatura wewnêtrzna ECU poza zakresem ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524121:
+	uiCodeNb := 6239;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524121 - B³¹d przekroczenia limitu czasu CAN ramki ComRxTrbChActr';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524156:
+	uiCodeNb := 6240;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524156 - B³¹d przekroczenia limitu czasu CAN ramki ComRxEBC2';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6241;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - wykryto blokadê mechaniczn¹ ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6242;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - CAN error';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6243;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - b³¹d kalibracji EOL';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6244;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - wewnêtrzny b³¹d elektryczny';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6245;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - pr¹d powy¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6246;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - napiêcie zasilania powy¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6247;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - napiêcie zasilania poni¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+1188:
+	uiCodeNb := 6248;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 1188 - Zawór westgate turbosprê¿arki - temperatura krytycznie wysoka';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524147:
+	uiCodeNb := 6249;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524147 - System SCR - zawór zmiany kierunku zablokowany';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524175:
+	uiCodeNb := 6250;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524175 - System SCR-CAT - emisje NOx powy¿ej progu maksymalnego';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524178:
+	uiCodeNb := 6251;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524178 - System SCR - ciœnienie DEF poza zakresem';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524067:
+	uiCodeNb := 6252;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524067 - Temperatura grza³ki modu³u zasilaj¹cego - b³ad wiarygodnoœci';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524152:
+	uiCodeNb := 6253;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524152 - Czujnik jakoœci mocznika - przekroczenie limitu czasu ramki CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524153:
+	uiCodeNb := 6254;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524153 - Poziom mocznika w zbiorniku i temperatura zbiornika mocznika - przekroczono limit czasu ramki CAN';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524189:
+	uiCodeNb := 6255;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524189 - Master/Slave CAN zak³ócony';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524190:
+	uiCodeNb := 6256;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524190 - Niewystarczaj¹ca iloœæ mocznika w zbiorniku lub niska jakoœæ mocznika';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524191:
+	uiCodeNb := 6257;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524191 - Wykryto niski poziom mocznika w zbiorniku ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 6258;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3519 - Za wysoka temperatura zbiornika mocznika';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 6259;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3519 - Czujnik jakoœci mocznika - zwarcie wewnêtrznego czujnika temperatury do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 6260;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3519 - Czujnik jakoœci mocznika - zwarcie wewnêtrznego czujnika temperatury do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 6261;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3520 - Czujnik jakoœci mocznika - zwarcie do obwodu zasilania';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 6262;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3520 - Czujnik jakoœci mocznika - zwarcie do masy';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 6263;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3520 - Czujnik jakoœci mocznika - silnie rozcieñczony mocznik lub inna ciecz w zbiorniku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 6264;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3520 - Czujnik jakoœci mocznika nie mo¿e byæ zmierzona w okreœlonych ramach czasowych';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 6265;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3520 - Jakoœæ mocznika w UQS nieprawid³owa';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3520:
+	uiCodeNb := 6266;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3520 - Rozcieñczony mocznik w zbiorniku';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+3519:
+	uiCodeNb := 6267;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 3519 - Nieprawid³owa temperatura w UQS';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524201:
+	uiCodeNb := 6268;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524201 - Monitorowanie wy³¹czenia SCREff na Slave ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524202:
+	uiCodeNb := 6269;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524202 - Aktywny kod b³êdu SCR w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524203:
+	uiCodeNb := 6270;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524203 - Awaria poziomu zbiornika mocznika jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524204:
+	uiCodeNb := 6271;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524204 - Awaria SCR jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524205:
+	uiCodeNb := 6272;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524205 - Awaria SCR Co2Off jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524206:
+	uiCodeNb := 6273;
+	sPriority := 'A';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524206 - Awaria dozowania mocznika jest aktywna w g³ównym ECU';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524233:
+	uiCodeNb := 6274;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524233 - B³¹d grupowy dotycz¹cy b³êdów EEPROM w podrzêdnej jednostce steruj¹cej ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524234:
+	uiCodeNb := 6275;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524234 - B³¹d grupowy dotycz¹cy b³êdów baterii w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524235:
+	uiCodeNb := 6276;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524235 - B³¹d grupowy dotycz¹cy b³êdów komunikacji CAN w podrzêdnej jednostce sterujacej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524236:
+	uiCodeNb := 6277;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524236 - B³¹d grupowy dotycz¹cy b³êdów monitorowania podrzêdnego ECM w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524237:
+	uiCodeNb := 6278;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524237 - B³¹d grupowy dotycz¹cy b³êdów OCWDA/SSPMon w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524238:
+	uiCodeNb := 6279;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524238 - B³¹d grupowy dotycz¹cy b³êdów TECU w podrzêdnej jednostce steruj¹cej ';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524242:
+	uiCodeNb := 6280;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524242 - B³¹d grupowy dotycz¹cy b³êdów SW reset w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+524243:
+	uiCodeNb := 6281;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 524243 - B³¹d grupowy dotycz¹cy b³êdów kontroli prêdkoœci silnika w podrzêdnej jednostce steruj¹cej';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+4171:
+	uiCodeNb := 6282;
+	sPriority := 'B';
+	usType := 0;
+	uiDeviceNb := 1;
+	sDescription := 'Silnik spalinowy 2 SPTP SPN 4171 - Dynamiczna kontrola temperatury przed SCR';
+	sDescriptionStaff := '';
+	sDescriptionMaintenance := '';
+	BREAK;
+END_CASE;
+END_BODY
+END_FUNCTION_BLOCK
